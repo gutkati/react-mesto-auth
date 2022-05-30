@@ -1,0 +1,15 @@
+.element__item {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 282px;
+    border-radius: 10px;
+    position: relative;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 928px) {
+    .element__item {
+        margin: 0 auto;
+    }
+}

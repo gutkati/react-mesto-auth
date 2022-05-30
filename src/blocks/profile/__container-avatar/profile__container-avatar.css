@@ -1,0 +1,44 @@
+.profile__container-avatar {
+    width: 120px;
+    height: 120px;
+    box-sizing: border-box;
+    opacity: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.profile__container-avatar::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    background-image: url("../../../images/karandash.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 26px;
+    transition: opacity .2s ease .1s;
+    z-index: 1;
+}
+
+.profile__container-avatar:hover::before {
+    opacity: 1;
+}
+
+.profile__container-avatar::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    background: rgb(0, 0, 0);
+    transition: opacity .2s ease .1s;
+}
+
+.profile__container-avatar:hover::after {
+    opacity: .8;
+}

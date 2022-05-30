@@ -1,0 +1,12 @@
+.popup__modal-image {
+    position: relative;
+    max-width: 75vw;
+    max-height: 75vh;
+}
+
+@media screen and (max-width: 450px) {
+    .popup__modal-image {
+        width: 240px;
+        min-height: 320px;
+    }
+}

@@ -1,0 +1,19 @@
+.header__section {
+    display: flex;
+    flex-direction: row;
+    height: 22px;
+    margin-top: 6px;
+}
+
+@media screen and (max-width: 768px) {
+    .header__section {
+        margin-right: 27px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .header__section {
+    justify-content: flex-end;
+
+    }
+}

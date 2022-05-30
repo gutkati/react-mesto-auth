@@ -1,0 +1,10 @@
+.popup__modal_theme_black {
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 60px 0 44px;
+    align-items: center;
+}
