@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Route, Switch, useHistory} from 'react-router-dom';
+import {Route, Switch, useHistory, Redirect} from 'react-router-dom';
 import Header from './Header.js';
 import Main from './Main.js'
 import Footer from "./Footer.js";
@@ -36,7 +36,7 @@ function App() {
     }
 
     function goToRegister() {
-        history.push("/login");
+        history.push("/signup");
     }
 
     function goOutMain() {
@@ -45,24 +45,22 @@ function App() {
     }
 
     function checkToken() {
-          //if (localStorage.getItem("jwt")) {
-            const jwt = localStorage.getItem("jwt");
-            if (jwt) {
-                authApi.getUserData(jwt).then((data) => {
-                    if (data) {
-                        setLoggedIn(true);
-                        history.push("/");
-                        setEmailUser(data.data.email);
+        const jwt = localStorage.getItem("jwt");
+        if (jwt) {
+            authApi.getUserData(jwt).then((data) => {
+                if (data) {
+                    setLoggedIn(true);
+                    history.push("/");
+                    setEmailUser(data.data.email);
+                }
+            })
+                .catch((err) => {
+                    if (err === 401) {
+                        console.log("401 - Токен не передан или передан не в том формате")
                     }
+                    console.log("401 - Переданный токен не корректен")
                 })
-                    .catch((err) => {
-                        if (err === 401) {
-                            console.log("401 - Токен не передан или передан не в том формате")
-                        }
-                        console.log("401 - Переданный токен не корректен")
-                    })
-            }
-         //}
+        }
     }
 
     function handlePageLogin() {
@@ -88,7 +86,6 @@ function App() {
                 setInfoTooltipOpen(true)
                 setIsSymbol(false);
                 setMessage("Что-то пошло не так! Попробуйте ещё раз.");
-
             })
     }
 
@@ -213,7 +210,7 @@ function App() {
                 <div className="page__container">
                     <Switch>
 
-                        <Route path="/login">
+                        <Route path="/signup">
                             <Header nameButton="Войти" handleClick={goToLogin}/>
                             <Register onRegister={handleRegister}/>
                         </Route>
@@ -236,6 +233,9 @@ function App() {
                             <Footer/>
 
                         </ProtectedRoute>
+                        <Route>
+                            {loggedIn ? <Redirect to="/"/> : <Redirect to="signin"/>}
+                        </Route>
                     </Switch>
 
                 </div>
@@ -260,7 +260,6 @@ function App() {
                     isOpen={isImagePopupOpen}
                     onClose={closeAllPopups}/>
 
-
                 <InfoTooltip
                     isOpen={infoTooltipOpen}
                     onClose={closeAllPopups}
@@ -274,7 +273,6 @@ function App() {
 }
 
 export default App;
-
 
 // {/*<PopupWithForm*/}
 //        {/*    name={'remove-card'}*/}
