@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Card.js';
-import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
+import {CurrentUserContext} from "../contexts/CurrentUserContext.js";
 
 function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete, cards}) {
 
@@ -24,25 +24,26 @@ function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike,
                         <p className="profile__subtitle">{currentUser.about}</p>
                     </div>
                 </div>
-                <button onClick={onAddPlace} aria-label="добавить" type="button" className="profile__add-button blackout" ></button>
+                <button onClick={onAddPlace} aria-label="добавить" type="button"
+                        className="profile__add-button blackout"></button>
             </section>
 
-                <section className="elements content__elements">
-                    <ul className="element">
-                        {
+            <section className="elements content__elements">
+                <ul className="element">
+                    {
                         cards.map((card) => (
-                        <Card card={card}
-                              key={card._id}
-                              onCardClick={onCardClick}
-                              onCardLike={onCardLike}
-                              onCardDelete={onCardDelete}
-                        />
+                            <Card card={card}
+                                  key={card._id}
+                                  onCardClick={onCardClick}
+                                  onCardLike={onCardLike}
+                                  onCardDelete={onCardDelete}
+                            />
                         ))
                     }
-                    </ul>
-                </section>
+                </ul>
+            </section>
         </main>
     )
 };
 
-    export default Main;
+export default Main;

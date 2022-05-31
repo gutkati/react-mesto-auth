@@ -6,7 +6,8 @@ export default function InfoTooltip(props) {
     return (
         <div className={`popup ${props.isOpen ? 'popup_opened' : ''}`}>
             <div className="popup__modal">
-                <button onClick={props.onClose} type="button" aria-label="закрыть" className="popup__close blackout"></button>
+                <button onClick={props.onClose} type="button" aria-label="закрыть"
+                        className="popup__close blackout"></button>
                 <img className="popup__tooltip-img"
                      src={props.symbol ? imageYes : imagesNo}
                      alt={props.symbol ? "Да" : "Нет"}

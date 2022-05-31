@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
+import React, {useState} from "react";
 
 export default function Login(props) {
 
@@ -26,42 +24,41 @@ export default function Login(props) {
                 <h2 className="popup__title">Вход</h2>
 
                 <form onSubmit={handleSubmit} className="popup__form">
-                <div className="popup__input-container">
-                    <input
-                        value={email}
-                        onChange={handleEmailChange}
-                        className="popup__input popup__input_theme_black popup__input_type_email"
-                        type="email"
-                        name="email"
-                        id="email-input"
-                        placeholder="Email"
-                        minLength="2"
-                        maxLength="100"
-                        required
-                    />
+                    <div className="popup__input-container">
+                        <input
+                            value={email}
+                            onChange={handleEmailChange}
+                            className="popup__input popup__input_theme_black popup__input_type_email"
+                            type="email"
+                            name="email"
+                            id="email-input"
+                            placeholder="Email"
+                            minLength="2"
+                            maxLength="100"
+                            required
+                        />
                         <span className="card-name-input-error popup__input-error"></span>
-                </div>
-                <div className="popup__input-container">
-                    <input
-                        value={password}
-                        onChange={handlePasswordChange}
-                        className="popup__input popup__input_theme_black popup__input_type_password"
-                        type="password"
-                        name="password"
-                        id="password-input"
-                        placeholder="Пароль"
-                        minLength="4"
-                        maxLength="50"
-                        required
-                    />
+                    </div>
+                    <div className="popup__input-container">
+                        <input
+                            value={password}
+                            onChange={handlePasswordChange}
+                            className="popup__input popup__input_theme_black popup__input_type_password"
+                            type="password"
+                            name="password"
+                            id="password-input"
+                            placeholder="Пароль"
+                            minLength="4"
+                            maxLength="50"
+                            required
+                        />
                         <span className="card-link-input-error popup__input-error"></span>
-                </div>
-                <button className="popup__save popup__save_theme_black" type="submit">Войти</button>
+                    </div>
+                    <button className="popup__save popup__save_theme_black" type="submit">Войти</button>
 
-            </form>
+                </form>
 
             </div>
         </div>
-
     )
 }
