@@ -180,18 +180,17 @@ function App() {
     }
 
     useEffect(() => {
-        setLoggedIn(true);
         if (loggedIn) {
             api.getProfile()
                 .then(setCurrentUser)
-
                 .catch((err) => console.log(err));
 
             api.getInitialCards()
                 .then(setCards)
                 .catch((err) => console.log(err));
-            checkToken()
         }
+        checkToken()
+        setLoggedIn(true);
     }, [loggedIn]);
 
 
